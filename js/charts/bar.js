@@ -20,8 +20,9 @@ define("charts/bar", ['d3'], function(d3) {
 	var theData = [1,2,3];
 
 	var getDataBack = function(d) {
-		return d;
-	}
+		var text = d + ". Hello";
+		return text;
+	};
 
 	var p = d3.select("#graph")
 		.selectAll("svg")
@@ -30,6 +31,8 @@ define("charts/bar", ['d3'], function(d3) {
 		.append('p')
 		.text( getDataBack );
 
+
+	// 3 SVG Circles
 	var svg = d3.select("#graph")
 		.selectAll("svg")
 		.data(theData)
@@ -42,6 +45,46 @@ define("charts/bar", ['d3'], function(d3) {
 		.attr("cy", 25)
 		.attr("r", 25)
 		.style("fill", "blue");
+
+
+
+	var circleRadii = [40,20,10];
+
+	var pickCircleColor = function(d) {
+		var color;
+
+		switch (d) {
+			case 40:
+				color = "green";
+			break;
+			case 20:
+				color = "purple";
+			break;
+			case 10:
+				color = "red";
+			break;
+			default:
+				color = "black";
+			break;
+		}
+		return color;
+	};
+
+	var svgContainer = d3.select("#graph")
+		.append('svg')
+		.attr("width", 200)
+		.attr("height", 200);
+
+	var circles = svgContainer.selectAll("circle")
+		.data( circleRadii )
+		.enter()
+		.append("circle");
+
+	var circleAttributes = circles
+		.attr("cx", 50)
+		.attr("cy", 50)
+		.attr("r", function(d) {return d;})
+		.style("fill", pickCircleColor);
 
 	return; 
 
