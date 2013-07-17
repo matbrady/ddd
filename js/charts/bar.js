@@ -19,12 +19,16 @@ define("charts/bar", ['d3'], function(d3) {
 
 	var theData = [1,2,3];
 
+	var getDataBack = function(d) {
+		return d;
+	}
+
 	var p = d3.select("#graph")
 		.selectAll("svg")
 		.data(theData)
 		.enter()
 		.append('p')
-		.text('Hello ');
+		.text( getDataBack );
 
 	var svg = d3.select("#graph")
 		.selectAll("svg")
