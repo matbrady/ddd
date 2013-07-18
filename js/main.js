@@ -74,7 +74,7 @@
 
         if ( detection.has('#main') ) {
             console.log("We've go a MAIN div");
-            mods.push('charts/bar');
+            mods.push('charts/demo');
         }
 
         require(mods);

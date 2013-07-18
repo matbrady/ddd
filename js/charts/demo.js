@@ -1,10 +1,7 @@
 /** 
- * Detection Polyfill
- * 
- * Stand-alone module for non-jquery class/id detection
- * @return has() : function that tests for basic CSS selector queries.
+ * Testing Demos from Dashing3D.js.com
  */
-define("charts/bar", ['d3'], function(d3) {	
+define("charts/demo", ['d3'], function(d3) {	
 
 	console.log( d3 );
 	// d3.select("body").append("svg")
