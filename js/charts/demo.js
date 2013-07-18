@@ -1,7 +1,7 @@
 /** 
  * Testing Demos from Dashing3D.js.com
  */
-define("charts/demo", ['d3', 'poly/simple-ajax'], function(d3, ajax) {	
+define("charts/demo", ['d3', 'poly/simple-ajax'], function(d3) {	
 
 
 	/**
@@ -172,10 +172,9 @@ define("charts/demo", ['d3', 'poly/simple-ajax'], function(d3, ajax) {
 			"border": "solid 3px black"
 		});
 
-	ajax('js/data/circle_data.json', function(data) {
-		buildCircles( JSON.parse(data) );
+	d3.json('js/data/circle_data.json', function(data) {
+		buildCircles( data );
 	});
-
 
 	return; 
 });
