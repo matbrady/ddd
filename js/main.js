@@ -60,28 +60,25 @@
   define(['poly/detection'], function( detection ) {
 
     function setup() {
-        var mods = [];
-        
-        if (!window.JSON) {      // << test for native JSON support.
-            mods.push('poly/json3');  // << fill in with shim if missing.
-        }
-        
-        require(mods, bootstrap);
+      var mods = [];
+      
+      if (!window.JSON) {      // << test for native JSON support.
+          mods.push('poly/json3');  // << fill in with shim if missing.
+      }
+      require(mods, bootstrap);
     };
 
     function bootstrap() {
-        var mods = [];
+      var mods = [];
 
-        if ( detection.has('#main') ) {
-            console.log("We've go a MAIN div");
-            mods.push('charts/demo');
-        }
+      if ( detection.has('#graph') ) {
+          mods.push('charts/demo');
+      }
 
-        require(mods);
+      require(mods);
     }
 
     setup();
-
 
   });
   
