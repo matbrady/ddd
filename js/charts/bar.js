@@ -32,7 +32,7 @@ define("charts/bar", ['d3'], function(d3) {
 		.text( getDataBack );
 
 
-	// 3 SVG Circles
+	// Repeat 3 SVG Circles
 	var svg = d3.select("#graph")
 		.selectAll("svg")
 		.data(theData)
@@ -48,6 +48,7 @@ define("charts/bar", ['d3'], function(d3) {
 
 
 
+	// Create color circles based on data
 	var circleRadii = [40,20,10];
 
 	var pickCircleColor = function(d) {
@@ -70,12 +71,12 @@ define("charts/bar", ['d3'], function(d3) {
 		return color;
 	};
 
-	var svgContainer = d3.select("#graph")
+	var bullsEyeContainer = d3.select("#graph")
 		.append('svg')
 		.attr("width", 200)
 		.attr("height", 200);
 
-	var circles = svgContainer.selectAll("circle")
+	var circles = bullsEyeContainer.selectAll("circle")
 		.data( circleRadii )
 		.enter()
 		.append("circle");
@@ -85,6 +86,22 @@ define("charts/bar", ['d3'], function(d3) {
 		.attr("cy", 50)
 		.attr("r", function(d) {return d;})
 		.style("fill", pickCircleColor);
+
+
+
+
+
+	var circleSpaces = [ 30, 70, 110];
+
+	var circleSpaceContainer = d3.select('body')
+		.append('svg')
+		.attr("height", 200)
+		.attr("width", 200)
+		.attr("id", "Mathew")
+		.style("border", "1px solid black");
+
+
+
 
 	return; 
 
