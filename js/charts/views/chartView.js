@@ -1,48 +1,16 @@
-// Example1.js
+// Example 1 Chart View
 
-define('charts/example1', ['d3', 'backbone'], function(d3, Backbone) {
+define('charts/views/chartView', ['d3', 'backbone'], function(d3, Backbone){
 
-	console.log("Let's Show Example 1!");
-
-	// Data shared across both graphs
-	var data = [4, 8, 15, 16, 23, 42];
-	var data2 = [16, 9, 30];
-
-	/** 
-	* Plain D3 
-	*/
-	var chart = d3.select("#plain").append("div")
-	   .attr("class", "chart example1");
-
-	chart.selectAll('div')
-		.data(data)
-		.enter()
-		.append('div')
-			.attr({
-				class: 'bar'
-			})
-			.style({
-				width: function(d) { return d * 10 + 'px' }
-			})
-			.text(function(d){  return d; });
-
-	/**
-	* Awesome Backbone D3
-	*/
-
-	// Chart Model
-	var ChartModel = Backbone.Model.extend({
-		defaults: {
-			data: data2
-		} 
-	});
+	// Data 
+	// var data = [4, 8, 15, 16, 23, 42];
 
 	var ChartView = Backbone.View.extend({
 		el: '<div id="chart1">',
 
 		events: {
 			"click": function() { 
-				this.model.set({ data: data }); 
+				this.model.set({ data: this.model.get('subData') }); 
 			} 
 		},
 
@@ -86,7 +54,7 @@ define('charts/example1', ['d3', 'backbone'], function(d3, Backbone) {
 				// Update the data provided
 				.data( self.model.get('data') )
 				.style({
-					"background": "#000",
+					"background": "red",
 					width: self.getWidth
 				})
 				.text( self.getValue )
@@ -124,12 +92,8 @@ define('charts/example1', ['d3', 'backbone'], function(d3, Backbone) {
 		getValue: function(d) {
 			return d;
 		}
-
 	});
 
-	var _chartModel = new ChartModel();
+return ChartView;
 
-	var _chart = new ChartView({model: _chartModel});
-
-	return;
 });

@@ -33,12 +33,13 @@
 
     paths: {
       "poly": "polyfills",
+      "plain": "charts/plain",
+      "awesome": "charts/awesome",
       "d3": "lib/d3.v3.min",
       "jquery": "lib/jquery",
       "underscore": "lib/underscore",
       "backbone": "lib/backbone"
     }
-
   };
 
   // Predefine Require setup, or configure existing library:
@@ -78,7 +79,7 @@
       }
 
       if ( detection.has('#main')) {
-        mods.push('charts/example1');
+        mods.push('plain/example1', 'awesome/example1');
       }
 
       require(mods);
