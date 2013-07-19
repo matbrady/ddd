@@ -34,7 +34,9 @@
     paths: {
       "poly": "polyfills",
       "d3": "lib/d3.v3.min",
-      "jquery": "lib/jquery"
+      "jquery": "lib/jquery",
+      "underscore": "lib/underscore",
+      "backbone": "lib/backbone"
     }
 
   };
@@ -63,7 +65,7 @@
       var mods = [];
       
       if (!window.JSON) {      // << test for native JSON support.
-          mods.push('poly/json3');  // << fill in with shim if missing.
+        mods.push('poly/json3');  // << fill in with shim if missing.
       }
       require(mods, bootstrap);
     };
@@ -72,7 +74,11 @@
       var mods = [];
 
       if ( detection.has('#graph') ) {
-          mods.push('charts/demo');
+        // mods.push('charts/demo');
+      }
+
+      if ( detection.has('#main')) {
+        mods.push('charts/example1');
       }
 
       require(mods);

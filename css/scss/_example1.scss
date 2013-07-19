@@ -1,0 +1,12 @@
+// Exmaple 1
+
+.example1 {
+	$c-blue: #BBD8E9;
+
+	.bar {
+		background-color: $c-blue;
+		color: #fff;
+		margin: 10px 0 0;
+		padding: 3px 10px;
+	}
+}

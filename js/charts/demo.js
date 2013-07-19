@@ -1,7 +1,7 @@
 /** 
  * Testing Demos from Dashing3D.js.com
  */
-define("charts/demo", ['d3', 'poly/simple-ajax'], function(d3) {	
+define("charts/demo", ['d3'], function(d3) {	
 
 
 	/**
@@ -137,44 +137,44 @@ define("charts/demo", ['d3', 'poly/simple-ajax'], function(d3) {
 	// 				 .style(circle_1Styles);
 
 
-	var getData = function( d, i ) {
-		return 30;
-	};
+	// var getData = function( d, i ) {
+	// 	return 30;
+	// };
 
-	// Circles from Data
-	var buildCircles = function( data ) {
+	// // Circles from Data
+	// var buildCircles = function( data ) {
 
-		var circles_2 = dataCircleCont.selectAll("circle")
-			.data( data )
-			.enter()
-			.append("circle");
+	// 	var circles_2 = dataCircleCont.selectAll("circle")
+	// 		.data( data )
+	// 		.enter()
+	// 		.append("circle");
 
-			console.log(circles_2);
+	// 		console.log(circles_2);
 
-		circles_2.attr({
-			"cx": function(d) {return d.cx;},
-			"cy": function(d) {return d.cy;},
-			"r" : function(d) {return d.r;}
-		}).style({
-			"fill": 'red'
-		});
-	};
+	// 	circles_2.attr({
+	// 		"cx": function(d) {return d.cx;},
+	// 		"cy": function(d) {return d.cy;},
+	// 		"r" : function(d) {return d.r;}
+	// 	}).style({
+	// 		"fill": 'red'
+	// 	});
+	// };
 
-	var dataCircleCont = d3.select('body')
-		.append('svg')
-		.attr({
-			"height": 200,
-			"width": 500,
-			"id": "dataCircleCont"
-		})
-		.style({
-			"background-color": '#eee',
-			"border": "solid 3px black"
-		});
+	// var dataCircleCont = d3.select('body')
+	// 	.append('svg')
+	// 	.attr({
+	// 		"height": 200,
+	// 		"width": 500,
+	// 		"id": "dataCircleCont"
+	// 	})
+	// 	.style({
+	// 		"background-color": '#eee',
+	// 		"border": "solid 3px black"
+	// 	});
 
-	d3.json('js/data/circle_data.json', function(data) {
-		buildCircles( data );
-	});
+	// d3.json('js/data/circle_data.json', function(data) {
+	// 	buildCircles( data );
+	// });
 
 	return; 
 });
